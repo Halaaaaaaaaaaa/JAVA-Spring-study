@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- com.ezen.biz -->
+	<!-- 생성자 주입 방식. constructor-arg -->
+	<bean id="tv" class="com.ezen.biz.SamsungTV">
+		<!-- id="bose" / id="jbl" 인 생성자를 주입(참조)하겠다. -->
+		<constructor-arg ref="jbl"></constructor-arg>
+		<constructor-arg value="29000"></constructor-arg>
+	</bean> 
+	
+	<!-- Setter 주입 방식. property -->
+	<bean id="tv2" class="com.ezen.biz.SamsungTV">
+		<property name="speaker" ref="jbl"></property>
+		<property name="price" value="28000"></property>
+	</bean>
+	
+	<!-- p 네임스페이스 사용 -->
+	<bean id="tv3" class="com.ezen.biz.SamsungTV"
+		p:speaker-ref="jbl" p:price="27000">
+	</bean>
+	 
+	<bean id="lgtv" class="com.ezen.biz.LgTV"></bean>
+	
+	<bean id="bose" class="com.ezen.biz.BoseSpeaker"></bean>
+	
+	<bean id="jbl" class="com.ezen.biz.JBLSpeaker"></bean>
+	
+
+</beans>

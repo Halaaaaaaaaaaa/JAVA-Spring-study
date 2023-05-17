@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- collection -->
+	<!-- 컬렉션 의존성 주입 : List -->
+	<bean id="collectionBean" class="collection.CollectionBean">
+		<!-- 컬렉션 의존성 주입 : List -->
+		<property name="addressList">
+			<list>
+				<value>- 서울시 강북구 수유동</value>
+				<value>- 서울시 동대문구 제기동</value>
+				<value>- 서울시 관악구 신림동</value>
+			</list>
+		</property>
+		
+		<!-- 컬렉션 의존성 주입 : Set -->
+		<property name="movieSet">
+			<set value-type="java.lang.String">
+				<value>- Call Me By Your Name</value>
+				<value>- Guardians Of The Galaxy Vol.3</value>
+				<value>- Me Before You</value>
+			</set>
+		</property>
+		
+		<!-- 컬렉션 의존성 주입 : Map -->
+		<property name="prefList">
+			<map>
+				<entry>
+					<key><value>Kor</value></key>
+					<value>88</value>
+				</entry>
+				<entry>
+					<key><value>Eng</value></key>
+					<value>92</value>
+				</entry>
+				<entry>
+					<key><value>Mat</value></key>
+					<value>98</value>
+				</entry>
+			</map>
+		</property>
+		
+		<!-- 컬렉션 의존성 주입 : Properties --> 
+		<property name="propList">
+			<props>
+				<prop key="username">heysh</prop>
+				<prop key="password">1234</prop>
+			</props>
+		</property>
+		
+		
+		
+	</bean>
+
+</beans>
