@@ -15,29 +15,21 @@ public class MemberDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
-	
 	// 회원 id를 조건으로 사용자 정보 조회
 	public MemberVO getMember(String id) {
-		
 		return mybatis.selectOne("MemberMapper.getMember", id);
-		
 	}
 
 	// 회원 존재 여부 조회
 	public int confirmID(String id) {
-		
 		String pwd = mybatis.selectOne("MemberMapper.confirmID",id);
 		
-		
-	if (pwd != null)
-		return 1; // id 존재
-	else
-		return -1;
+		if (pwd != null)
+			return 1; // id 존재
+		else
+			return -1;
 	}
 
-	
-	
-	
 	/*
 	 * 회원 로그인 인증
 	 * 리턴값 : ID가 존재하고 비밀번호가 같으면 1
@@ -51,41 +43,23 @@ public class MemberDAO {
 		
 		if(pwd == null) {
 			result = -1;
-	
 		} else if(pwd.equals(vo.getPwd())) {
 			result = 1;
-			
 		} else {
 			result = 0;
-			
 		}
-		
 		return result;
-		
 	}
-	
-	
-	
-	
 	
 	// 회원 가입 작업
 	public void insertMember(MemberVO vo) {
-	
 		mybatis.insert("MemberMapper.insertMember", vo);
-		
 	}
 	
 	//주소 작업
 	public List<AddressVO> selectAddressByDong(String dong){
-		
-		return mybatis.selectList("MemberMapper.selectAddressByDong", dong);
-		
-		
+		return mybatis.selectList("MemberMapper.selectAddressByDong", dong);		
 	}
-	
-	
-	
-	
 	
 	
 }

@@ -149,13 +149,4 @@ public class MemberController {
 	
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

@@ -33,5 +33,27 @@ public class ProductServiceImpl implements ProductService {
 	public List<ProductVO> getProductListByKind(String kind) {
 		return productDao.getProductListByKind(kind);
 	}
+	
+	////////////////////////////////////////////////////////////////////////
+
+	@Override	//총 상품 목록 개수 조회
+	public int countProductList(String name) {
+		return productDao.countProductList(name);
+	}
+
+	@Override	//상품 목록 조회
+	public List<ProductVO> getListProduct(String name) {
+		return productDao.listProduct(name);
+	}
+
+	@Override	//상품 추가
+	public void insertProduct(ProductVO vo) {
+		productDao.insertProduct(vo);
+	}
+
+	@Override	//상품 수정
+	public void updateProduct(ProductVO vo) {
+		productDao.updateProduct(vo);
+	}
 
 }

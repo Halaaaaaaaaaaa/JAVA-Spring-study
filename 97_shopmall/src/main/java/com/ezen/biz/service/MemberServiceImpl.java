@@ -18,31 +18,26 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public MemberVO getMember(String id) {
-		
 		return memberDao.getMember(id);
 	}
 
 	@Override
 	public int confirmID(String id) {
-
 		return memberDao.confirmID(id);
 	}
 
 	@Override
 	public void insertMember(MemberVO vo) {
-
 		memberDao.insertMember(vo);
 	}
 
 	@Override
 	public List<AddressVO> selectAddressByDong(String dong) {
-
 		return memberDao.selectAddressByDong(dong);
 	}
 
 	@Override
 	public int loginID(MemberVO vo) {
-
 		return memberDao.loginID(vo);
 	}
 
