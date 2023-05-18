@@ -54,9 +54,8 @@ public class PageMaker {
 		
 		// 5) 이전, 다음 버튼 표시 여부 결정
 		//시작 페이지 번호가 '1'일 경우, '이전' 버튼 필요X
-		//다음 페이지 번호가 '10' 미만일 경우, '다음' 버튼 필요 X
 		prev = (startPage == 1 ? false : true);
-		next = (endPage < 10 ? false : true);
+		next = (endPage * cri.getRowsPerPage() < totalCount ? true : false);
 	}
 	
 	public int getStartPage() {
@@ -102,9 +101,5 @@ public class PageMaker {
 				+ startPage + ", endPage=" + endPage + ", prev=" + prev + ", next=" 
 				+ next + ", cntPageNum=" + cntPageNum + ", realEndPage=" + realEndPage + "]";
 	}
-	
-	
-	
-	
 
 }

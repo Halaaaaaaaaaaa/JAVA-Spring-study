@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.ezen.biz.dao.ProductDAO;
 import com.ezen.biz.dto.ProductVO;
 
+import utils.Criteria;
+
 @Service
 public class ProductServiceImpl implements ProductService {
 
@@ -34,7 +36,7 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.getProductListByKind(kind);
 	}
 	
-	////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////// 아래는 Admin 부분 ///////////////////////////////////
 
 	@Override	//총 상품 목록 개수 조회
 	public int countProductList(String name) {
@@ -54,6 +56,11 @@ public class ProductServiceImpl implements ProductService {
 	@Override	//상품 수정
 	public void updateProduct(ProductVO vo) {
 		productDao.updateProduct(vo);
+	}
+
+	@Override	//페이지별 상품 목록 조회
+	public List<ProductVO> getListProductWithPaging(Criteria criteria, String name) {
+		return productDao.listProductWithPaging(criteria, name);
 	}
 
 }
