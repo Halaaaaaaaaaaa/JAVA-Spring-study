@@ -18,7 +18,6 @@
 		select * from product where kind= #{kind} ORDER BY NAME
 	</select>
 	
-	<!-- ----- [ 아래는 Admin 부분 ] ----- -->
 
 	<!-- 총 상품 목록 개수 조회 -->
 	<select id="countProductList" resultType="int">
@@ -34,17 +33,17 @@
 		ORDER BY name
 	</select>
 	
-	<!-- 페이지별 상품 목록 조회 -->
-	<select id="listProductWithPaging" resultType="product">
+	<!-- 페이지별 상품목록 조회 -->
+	<select id="listProductWithPaging" resultType="product" parameterType="hashMap">
 		<![CDATA[
 		SELECT rn, pseq, regdate, name, price1, price2, useyn, bestyn
-		FROM (SELECT row_number() OVER(ORDER BY name) rn, pseq, regdate, name, price1, price2, useyn, bestyn
-				FROM product 
-            	WHERE name LIKE '%'||'#{name}'||'%')
-    	WHERE rn > (criteria.pageNum - 1) * criteria.rowPerPage 
-      	  AND rn <= (criteria.pageNum * criteria.rowPerPage)
-      	]]>
-      </select>
+		FROM (SELECT row_number() OVER (ORDER BY name) rn, pseq, regdate, name, price1, price2, useyn, bestyn
+			FROM product
+			WHERE name LIKE '%'||#{name}||'%')
+		WHERE rn > (#{criteria.pageNum} - 1) * #{criteria.rowsPerPage}
+		AND rn <= (#{criteria.pageNum} * #{criteria.rowsPerPage})
+		]]>
+	</select>
 	
 	<!-- 상품 추가 -->
 	<insert id="insertProduct" parameterType="product">
@@ -61,3 +60,8 @@
 
 
 </mapper>
+
+
+
+
+

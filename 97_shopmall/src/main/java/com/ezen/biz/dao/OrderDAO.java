@@ -40,4 +40,25 @@ public class OrderDAO {
 		
 		return mybatis.selectList("OrderMapper.getSeqOrdering", vo);
 	}
+	
+	////////////////////////////아래는 관리자 영역////////////////////////////
+	
+	// 주문 전체 조회 매핑
+	public List<OrderVO> listOrder(String mname) {
+		return mybatis.selectList("OrderMapper.listOrder", mname);
+	}
+	
+	// 주문 상태 갱신 매핑
+	public void updateOrderResult(int odseq) {
+		mybatis.update("OrderMapper.updateOrderResult", odseq);
+	}
 }
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+package utils;
+
+/*
+	현재 페이지와 관련 정보 저장
+	  - 현재 페이지 번호
+	  - 페이지당 게시글 게수
+*/
+public class Criteria {
+	private int pageNum;
+	private int rowsPerPage;
+}

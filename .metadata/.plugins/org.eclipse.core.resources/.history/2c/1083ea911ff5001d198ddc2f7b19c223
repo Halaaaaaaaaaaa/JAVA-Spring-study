@@ -1,0 +1,33 @@
+package com.ezen.biz.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ezen.biz.dto.AdminVO;
+
+@Service
+public class AdminServiceImpl implements AdminService {
+
+	@Autowired
+	private AdminService adminService;
+	
+	@Override
+	public int adminCheck(AdminVO vo) {
+		
+		int result = adminService.adminCheck(vo);
+		
+		if(result. == "") {
+			return -1;
+		} else {
+			return 0;
+		}
+		
+		return adminService.adminCheck(vo);
+	}
+
+	@Override
+	public AdminVO getAdmin(String id) {
+		return adminService.getAdmin(id);
+	}
+
+}

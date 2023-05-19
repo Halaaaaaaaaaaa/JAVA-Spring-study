@@ -36,8 +36,8 @@
       <%-- <td height="23" align="center" >${productVO.pseq}</td> --%>
       <td height="23" align="center">${status.count}</td>
       <td style="text-align: left; padding-left: 50px; padding-right: 0px;">   
-<%--          <a href="#" onclick="go_detail('${pageMaker.criteria.pageNum}','${pageMaker.criteria.rowsPerPage}','${productVO.pseq}')"> --%>
-  		<a href="#" onclick="go_detail('${productVO.pseq}')">    
+          <a href="#" onclick="go_detail('${pageMaker.cri.pageNum}','${pageMaker.cri.rowsPerPage}','${productVO.pseq}')">
+<%--  		<a href="#" onclick="go_detail('${pageMaker.criteria.pageNum }', '${productVO.pseq}')">  --%>    
     	 ${productVO.name}     
    		</a>
    	  </td>

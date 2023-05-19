@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ezen.biz.dao.AdminDAO;
 import com.ezen.biz.dao.CartDAO;
 import com.ezen.biz.dao.OrderDAO;
 import com.ezen.biz.dto.CartVO;
@@ -76,6 +77,15 @@ public class OrderServiceImpl implements OrderService {
 		return orderDao.getSeqOrdering(vo);
 	}
 
-
+	////////////////////////////아래는 관리자 영역////////////////////////////
 	
+	@Override
+	public List<OrderVO> getListOrder(String mname) {
+		return orderDao.listOrder(mname);
+	}
+
+	@Override
+	public void updateOrderResult(int odseq) {
+		orderDao.updateOrderResult(odseq);
+	}
 }

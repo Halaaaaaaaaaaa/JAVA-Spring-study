@@ -14,6 +14,13 @@ public interface OrderService {
 	
 	List<OrderVO> getListOrderById(OrderVO vo);
 
-	
 	List<Integer> getSeqOrdering(OrderVO vo);
+	
+	////////////////////////////아래는 관리자 영역////////////////////////////
+		
+	// 주문 전체 조회 매핑
+	List<OrderVO> getListOrder(String mname);
+	
+	// 주문 상태 갱신 매핑
+	void updateOrderResult(int odseq);
 }

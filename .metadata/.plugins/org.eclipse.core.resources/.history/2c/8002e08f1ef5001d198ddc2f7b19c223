@@ -1,0 +1,11 @@
+package com.ezen.biz.service;
+
+import com.ezen.biz.dto.AdminVO;
+
+public interface AdminService {
+	
+	String adminCheck(String id);
+	
+	AdminVO getAdmin(String id);
+
+}
