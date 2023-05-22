@@ -10,6 +10,7 @@ import com.ezen.biz.dao.CartDAO;
 import com.ezen.biz.dao.OrderDAO;
 import com.ezen.biz.dto.CartVO;
 import com.ezen.biz.dto.OrderVO;
+import com.ezen.biz.dto.SalesQuantity;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -20,7 +21,6 @@ public class OrderServiceImpl implements OrderService {
 	private CartService cartService;
 	@Autowired
 	private CartDAO cartDao;
-	
 
 	@Override
 	public int selectMaxOseq() {
@@ -87,5 +87,10 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public void updateOrderResult(int odseq) {
 		orderDao.updateOrderResult(odseq);
+	}
+
+	@Override
+	public List<SalesQuantity> getProductSales() {
+		return orderDao.getProductSales();
 	}
 }

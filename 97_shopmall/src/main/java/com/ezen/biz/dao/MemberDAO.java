@@ -61,5 +61,24 @@ public class MemberDAO {
 		return mybatis.selectList("MemberMapper.selectAddressByDong", dong);		
 	}
 	
+	//회원 목록 조회 리스트
+	public List<MemberVO> listMember(String name) {
+		return mybatis.selectList("MemberMapper.listMember", name);
+	}
+	
+	// 이름과 이메일로 아이디 찾기
+	public String selectIdByNameEmail(MemberVO vo) {
+		return mybatis.selectOne("MemberMapper.selectIdByNameEmail", vo);
+	}
+
+	// 아이디, 이름, 이메일로 비밀번호 찾기 
+	public String selectPwdByIdNameEmail(MemberVO vo) {
+		return mybatis.selectOne("MemberMapper.selectPwdByIdNameEmail", vo);
+	}
+	
+	//비밀번호 변경
+	public void changePwd(MemberVO vo) {
+		mybatis.update("MemberMapper.changePwd", vo);
+	}
 	
 }

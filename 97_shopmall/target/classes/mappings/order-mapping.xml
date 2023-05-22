@@ -53,6 +53,19 @@
 		WHERE odseq=#{odseq}
 	</update>
 	
+	<!-- 관리자 페이지 제품 판매 실적 리스트 -->
+	<resultMap id="salesMap" type="com.ezen.biz.dto.SalesQuantity">
+		<result column="pname" property="pname"></result>
+		<result column="sales_count" property="quantity"></result>
+	</resultMap>
+	
+	<select id="listProductSales" resultMap="salesMap">
+		SELECT pname, SUM(quantity) AS sales_count
+		FROM order_view 
+		WHERE result='2'
+		GROUP BY pname
+	</select>
+	
 </mapper>
 
 

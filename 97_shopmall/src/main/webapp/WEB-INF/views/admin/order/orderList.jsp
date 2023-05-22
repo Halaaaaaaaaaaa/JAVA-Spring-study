@@ -5,6 +5,7 @@
 <script type="text/javascript">
   function go_order_save() {
     var count = 0;
+    //checkbox에 체크된 항목이 있는지 확인
     if (document.frm.result.length == undefined) {
       if (document.frm.result.checked == true) {
         count++;

@@ -11,5 +11,9 @@ public interface QnaService {
 	QnaVO getQna(int qseq);
 	
 	void insertQna(QnaVO vo);
+	
+	List<QnaVO> listAllQna();
+	
+	void adminQnaDetail(QnaVO vo);
 
 }

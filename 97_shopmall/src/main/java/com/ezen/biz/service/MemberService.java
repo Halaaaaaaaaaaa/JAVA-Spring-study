@@ -21,6 +21,17 @@ public interface MemberService {
 	//주소 작업
 	List<AddressVO> selectAddressByDong(String dong);
 	
+	///////////// 아래는 관리자 영역 /////////////
 	
+	//관리자 페이지 - 회원 리스트
+	List<MemberVO> listMember(String name);
 	
+	// 이름과 이메일로 아이디 찾기
+	String selectIdByNameEmail(MemberVO vo);
+
+	// 아이디, 이름, 이메일로 비밀번호 찾기 
+	String selectPwdByIdNameEmail(MemberVO vo);
+	
+	// 비밀번호 변경
+	void changePwd(MemberVO vo);
 }

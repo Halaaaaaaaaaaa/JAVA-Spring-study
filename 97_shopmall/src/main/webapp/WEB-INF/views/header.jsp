@@ -12,6 +12,7 @@
   <script type="text/javascript" src="member/member.js"></script>
   <script type="text/javascript" src="product/product.js"></script>
   <script type="text/javascript" src="mypage/mypage.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 

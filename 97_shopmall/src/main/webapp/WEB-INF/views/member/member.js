@@ -15,8 +15,8 @@ function go_next() {
 	}
 }
 
+// ID값 입력 여부 확인
 function idcheck() {
-	// ID값 입력 여부 확인
 	if (document.getElementById("id").value == "") {
 		alert("아이디를 입력해주세요");
 		document.getElementById("id").focus();
@@ -29,17 +29,10 @@ function idcheck() {
 	window
 			.open(url, "_blank_",
 					"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=450, height=350")// 팝업.
-																									// 화면
-																									// 크기
-																									// 지정
-
-
 
 }
-/*
- * 회원 가입 시 필수 입력 확인
- */
 
+//회원 가입 시 필수 입력 확인
 function go_save() {
 	if (document.getElementById("id").value == "") {
 		alert("사용자 아이디를 입력해 주세요");
@@ -71,11 +64,77 @@ function go_save() {
 	}
 }
 
+//주소 찾기
 function post_zip() {
 	var url = "find_zip_num";
 	window.open(url, "_blank_",
 			"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=700, height=500")
 }
+
+//아이디 찾기 창 띄우기
+function find_id_form() {
+	var url = "find_id_form";
+	
+	window.open(url,"_blank_","toolbar=no, menubar=no,scrollbars=yes,width=700,height=450, resizable =no")
+}
+
+//이름과 이메일로 아이디 찾기 요청
+function findMemberId() {
+	if (document.getElementById("name").value=="") {
+		alert("이름을 입력해 주세요");
+		document.getElementById("name").focus();
+		return false;
+	} else if (document.getElementById("email").value=="") {
+		alert("이메일을 입력해 주세요");
+		document.getElementById("email").focus();
+		return false;
+	} else {
+		var form = document.getElementById("findId");
+		form.action = "find_id";
+		form.submit();
+	}
+}
+
+//비밀번호 찾기
+function findPassword() {
+	if (document.getElementById("id2").value=="") {
+		alert("아이디를 입력해 주세요");
+		document.getElementById("id2").focus();
+		return false;
+	}else if (document.getElementById("name2").value=="") {
+		alert("이름을 입력해 주세요");
+		document.getElementById("name2").focus();
+		return false;
+	} else if (document.getElementById("email2").value=="") {
+		alert("이메일을 입력해 주세요");
+		document.getElementById("email2").focus();
+		return false;
+	} else {
+		var form = document.getElementById("findPW");
+		form.action = "find_pwd";
+		form.submit();
+	}
+}
+
+//비밀번호 찾기 후 새 비밀번호 변경
+function changePassword() {
+	if (document.getElementById("pwd").value == "") {
+		alert("비밀번호를 입력해 주세요");
+		document.getElementById("pwd").focus();
+		return false;
+	} else if (document.getElementById("pwd").value
+				!= document.getElementById("pwdcheck").value) {
+		alert("비밀번호가 맞지 않습니다.");
+		document.getElementById("pwd").focus();
+		return false;
+	} else {
+		var form = document.getElementById("pwd_form");
+		form.action = "change_pwd";
+		form.submit();
+	}
+}
+
+
 
 
 

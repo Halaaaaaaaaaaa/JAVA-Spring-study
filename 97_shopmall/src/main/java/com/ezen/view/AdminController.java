@@ -13,16 +13,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.biz.dto.AdminVO;
+import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.dto.OrderVO;
 import com.ezen.biz.dto.ProductVO;
+import com.ezen.biz.dto.QnaVO;
+import com.ezen.biz.dto.SalesQuantity;
 import com.ezen.biz.service.AdminService;
+import com.ezen.biz.service.MemberService;
 import com.ezen.biz.service.OrderService;
 import com.ezen.biz.service.ProductService;
+import com.ezen.biz.service.QnaService;
 
 import utils.Criteria;
 import utils.PageMaker;
@@ -37,6 +43,10 @@ public class AdminController {
 	private ProductService productService;
 	@Autowired
 	private OrderService orderService;
+	@Autowired
+	private MemberService memberService;
+	@Autowired
+	private QnaService qnaService;
 	
 	@GetMapping("/admin_login_form")
 	public String adminLoginView() {
@@ -270,6 +280,8 @@ public class AdminController {
 	}
 	
 	//주문 상태 갱신 매핑 - 주문 완료 처리
+	//입력 파라미터: 주문완료 처리한 result 항목의 상세주문번호(odseq) 배열 전달
+	//int[] oseq = int oseq[]
 	@RequestMapping("admin_order_save")
 	public String adminOrderSave(OrderVO vo, HttpSession session,
 			@RequestParam(value="result") int oseq[]) {
@@ -282,34 +294,90 @@ public class AdminController {
 		return "redirect:admin_order_list";
 	}
 	
-	//
+	/*//강사님 버전
+	@PostMapping("admin_order_save")
+	public String adminOrderSave(@RequestParam(value="result") int oseq[]) {
+		System.out.println("=====[ adminOrderSave() 호출 성공 ]=====");
+		
+		for(int i; i<odseq.length>0; i++) {
+			orderService.updateOrderResult(odseq[i]);
+		}
+		
+		return "redirect:admin_order_list";
+	}
+	*/
+	
+	//회원 리스트 조회
+	@RequestMapping("/admin_member_list")
+	public String listMember(MemberVO vo, Model model,
+				@RequestParam(value="key", defaultValue="") String name) {
+		
+		List<MemberVO> memberList = memberService.listMember(name);
+		
+		model.addAttribute("memberList", memberList);
+		
+		return "/admin/member/memberList";
+	}
+	
+	//qna 리스트 조회
+	@GetMapping("/admin_qna_list")
+	public String qnaList(Model model) {
+		
+		List<QnaVO> qnaList = qnaService.listAllQna();
+		
+		model.addAttribute("qnaList", qnaList);
+		
+		return "admin/qna/qnaList";
+	}
+	
+	//qna 디테일
+	@PostMapping("/admin_qna_detail")
+	public String adminQnaDetail(Model model,
+						@RequestParam(value="qseq") int qseq) {
+		
+		QnaVO qnaDetail = qnaService.getQna(qseq);
+		
+		model.addAttribute("qnaVO", qnaDetail);
+		
+		return "admin/qna/qnaDetail";
+	}
+	
+	//게시글 답변 처리
+	@PostMapping("/admin_qna_repsave")
+	public String adminQnaDetail(@RequestParam(value="reply") String reply,
+								@RequestParam(value="qseq") int qseq) {
+		
+		QnaVO vo = new QnaVO();
+		
+		vo.setQseq(qseq);
+		vo.setReply(reply);
+		
+		qnaService.adminQnaDetail(vo);
+		
+		return "redirect:admin_qna_list";
+	}	
+	
+	// 제품별 판매 실적 view
+	@RequestMapping("/admin_sales_record_form")
+	public String adminSalesRecordView() {
+		
+		//차트를 표시할 jsp 화면 표시
+		return "admin/order/salesRecords";
+	}
+	
+	// 제품별 판매 실적 chart(판매 완료된 상품들을 chart로 나타냄)
+	@RequestMapping("/sales_record_chart")
+	@ResponseBody
+	public List<SalesQuantity> salesRecordChart() {
+		
+		List<SalesQuantity> listSales = orderService.getProductSales();
+		
+		return listSales;	
+	}
+	
+	//아이디 찾기
+	
+	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

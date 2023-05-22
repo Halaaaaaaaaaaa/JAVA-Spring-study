@@ -3,6 +3,7 @@ package com.ezen.biz.service;
 import java.util.List;
 
 import com.ezen.biz.dto.OrderVO;
+import com.ezen.biz.dto.SalesQuantity;
 
 public interface OrderService {
 
@@ -23,4 +24,6 @@ public interface OrderService {
 	
 	// 주문 상태 갱신 매핑
 	void updateOrderResult(int odseq);
+	
+	List<SalesQuantity> getProductSales();
 }

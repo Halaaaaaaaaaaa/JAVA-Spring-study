@@ -26,5 +26,16 @@ public class QnaDAO {
 		mybatis.insert("QnaMapper.insertQna", vo);
 	}
 	
+	//관리자 페이지 게시판 조회 목록
+	public List<QnaVO> listAllQna() {
+		return mybatis.selectList("QnaMapper.listAllQna");
+	}
+	
+	//관리자 페이지 게시판 상세보기
+	public void adminQnaDetail(QnaVO vo) {
+		mybatis.update("QnaMapper.updateQna", vo);
+	}
+	
+	
 
 }
