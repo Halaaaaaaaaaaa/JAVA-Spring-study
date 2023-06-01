@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab");
+html, body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: "Roboto Slab", serif;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.heading {
+  background: white;
+  height: 5%;
+  margin: 10px;
+  padding: 10px;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  background-color: #3c3c3c;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-general {
+  padding: 0;
+  margin: 0;
+  width: 95%;
+  height: 95%;
+}
+.container-general .gallery-wrap {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 90vh;
+}
+.container-general .gallery-wrap .item {
+  flex: 1;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: none;
+  transition: all 0.8s ease;
+}
+.container-general .gallery-wrap .item:hover {
+  flex: 7;
+}
+
+.wrap-effect-1 .item:first-of-type {
+  background-image: url("../images/1.jpg");
+}
+.wrap-effect-1 .item:nth-of-type(2) {
+  background-image: url("../images/2.jpg");
+}
+.wrap-effect-1 .item:nth-of-type(3) {
+  background-image: url("https://mblogthumb-phinf.pstatic.net/MjAyMDA3MjNfMjc1/MDAxNTk1NDg5NTM1MDM1.CJAu8FjpPNLnBLUkVKE_pU0h6_3vwXC9FUJdH-8RJUMg.WJJCkxAfm8p6-adg1uV6RR7ytTi3rWLl2TXZM5mKrLcg.GIF.orols07/1595489531683.gif?type=w800");
+}
+.wrap-effect-1 .item:nth-of-type(4) {
+  background-image: url("../images/3.jpg");
+}
+.wrap-effect-1 .item:last-of-type {
+  background-image: url("../images/4.jpg");
+}
+
+.inspire {
+  border: 1px solid rgba(22, 76, 167, 0.6);
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  margin: 10px;
+  padding: 10px;
+}
+.inspire:after {
+  background: #38ef7d;
+  content: "";
+  height: 155px;
+  left: -75px;
+  opacity: 0.4;
+  position: absolute;
+  top: -50px;
+  transform: rotate(35deg);
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+  width: 50px;
+  z-index: -10;
+}
+.inspire:hover:after {
+  left: 120%;
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: rotate(10deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-10deg) translate3d(0, 0, 0);
+  }
+  75% {
+    transform: rotate(5deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
+
+.swiper-container-cube .swiper-cube-shadow {
+  background-color: transparent !important;
+}

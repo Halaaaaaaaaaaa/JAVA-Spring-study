@@ -12,6 +12,11 @@
 		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="Z:\03. 3차 프로젝트\코드 취합\project3"/>
+			<item value="D:\spring-workspace\project3"/>
+			<item value="D:\spring-workspace\97_shopmall2_2"/>
+			<item value="D:\spring-workspace\97_shopmall3_2"/>
+			<item value="D:\spring-workspace\project3-master"/>
 			<item value="D:\spring-workspace\97_shopmall"/>
 			<item value="D:\spring-workspace\97_shopmall2"/>
 			<item value="D:\학생방\김세현\999. backup\20230503\14_SpringMVC_Model3"/>
@@ -23,6 +28,22 @@
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
 			<item value=""/>
+			<item value="D:\spring-workspace\97_shopmall3_2"/>
 		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="220"/>
+		<item key="DIALOG_Y_ORIGIN" value="363"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+	<section name="SaveAsDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="706"/>
+		<item key="DIALOG_Y_ORIGIN" value="142"/>
+		<item key="DIALOG_WIDTH" value="525"/>
+		<item key="DIALOG_HEIGHT" value="580"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 </section>

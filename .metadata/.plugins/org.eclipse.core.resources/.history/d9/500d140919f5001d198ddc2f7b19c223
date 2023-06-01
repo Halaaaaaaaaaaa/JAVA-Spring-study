@@ -1,7 +1,0 @@
-package com.ezen.biz.service;
-
-public interface AdminService {
-	
-	
-
-}
